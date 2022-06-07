@@ -5,7 +5,8 @@ module.exports = {
   content: ['./src/**/**.{js,ts,jsx,tsx}'],
   theme: {
     colors: {
-      transition: 'transition',
+      white: '#ffffff',
+      transparent: 'transparent',
       gradient: 'linear-gradient(90deg,#896eff 0,#5f3bff 51%,#896eff)',
       gradientSec: 'linear-gradient(90deg,#130065 0,#2b0ead 51%,#130065)',
       blue: '#5543d1',
@@ -30,8 +31,8 @@ module.exports = {
       danger: '#ff5269',
       light: '#faf8f2',
       dark: '#262f5a',
-      white: '#ffffff',
       black: '#000000',
+      victoria: '#505489',
     },
     boxShadow: {
       1: '0 0 10px 4px rgb(31 66 135 / 10%)',
@@ -43,12 +44,16 @@ module.exports = {
       move1: 'move1 5s infinite',
       move2: 'move2 5s infinite',
       move3: 'move3 5s infinite',
+      rotate360: 'rotate360 5s infinite',
     },
     container: {
       center: true,
     },
 
     extend: {
+      borderRadius: {
+        hafl: '50%',
+      },
       keyframes: {
         toLeftFromRight: {
           '49%': {
@@ -78,7 +83,7 @@ module.exports = {
           '0%': {
             transform: 'rotate(-1deg) translate(-2px, -2px)',
           },
-          50: {
+          '50%': {
             transform: 'rotate(1deg) translate(2px, 2px)',
           },
           to: {
@@ -122,49 +127,57 @@ module.exports = {
             transform: 'translate(0)',
           },
         },
+        rotate360: {
+          '0%': {
+            transform: 'rotate(0)',
+          },
+          to: {
+            transform: 'rotate(-1turn)',
+          },
+        },
       },
     },
   },
   plugins: [
-    plugin(function ({ addUtilities, addComponents, e, prefix, config }) {
+    plugin(function ({ addComponents }) {
       // Add your custom styles here
       addComponents({
-        'text-heading-1': {
-          fontWeight: 700,
-          fontSize: '54px',
-          lineHeight: 1.2,
+        '.text-heading-1': {
+          'font-weight': '700',
+          'font-size': '54px',
+          'line-height': '1.2',
         },
-        'text-heading-2': {
-          fontWeight: 700,
-          fontSize: '38px',
-          lineHeight: 1.2,
+        '.text-heading-2': {
+          'font-weight': '700',
+          'font-size': '38px',
+          'line-height': '1.2',
         },
-        'text-heading-3': {
-          fontWeight: 700,
-          fontSize: '32px',
-          lineHeight: 1.2,
+        '.text-heading-3': {
+          'font-weight': '700',
+          'font-size': '32px',
+          'line-height': '1.2',
         },
-        'text-heading-4': {
-          fontWeight: 700,
-          fontSize: '25px',
-          lineHeight: 1.2,
+        '.text-heading-4': {
+          'font-weight': '700',
+          'font-size': '25px',
+          'line-height': '1.2',
         },
-        'text-heading-5': {
-          fontWeight: 700,
-          fontSize: '20px',
-          lineHeight: 1.2,
-        },
-
-        'text-heading-6': {
-          fontWeight: 600,
-          fontSize: '18px',
-          lineHeight: 1.2,
+        '.text-heading-5': {
+          'font-weight': '700',
+          'font-size': '20px',
+          'line-height': '1.2',
         },
 
-        'text-body-1': {
-          fontWeight: 400,
-          fontSize: '15px',
-          lineHeight: 1.2,
+        '.text-heading-6': {
+          'font-weight': '600',
+          'font-size': '18px',
+          'line-height': '1.2',
+        },
+
+        '.text-body-1': {
+          'font-weight': '400',
+          'font-size': '15px',
+          'line-height': '1.2',
         },
       });
     }),

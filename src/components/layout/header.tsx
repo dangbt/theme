@@ -3,9 +3,11 @@ import Img from 'next/image';
 import { HEADERS } from 'contants/header';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export default function Header() {
   const [sticky, setSticky] = useState(false);
+  const { locale } = useRouter();
   useEffect(() => {
     function doSomeThing() {
       console.log(window.scrollY);
@@ -24,18 +26,20 @@ export default function Header() {
     if (sticky) {
       return 'shadow-1 bg-white';
     }
-    return '';
+    return 'bg-transparent';
   }, [sticky]);
   return (
     <header
       className={[
+        ' fixed top-0 left-0 right-0 z-10 transition-all',
         stickyCss,
-        ' sticky top-0 z-10 bg-transition transition-all',
       ].join(' ')}
     >
       <div className="container flex items-center justify-between ">
         <div>
-          <Img src={'/vercel.svg'} width={100} height={80} />
+          <Link href="/" locale={locale}>
+            <Img src={'/vercel.svg'} width={100} height={80} />
+          </Link>
         </div>
         <div>
           <ul className="flex cursor-pointer items-center space-x-[30px]">
@@ -48,7 +52,7 @@ export default function Header() {
                   key={h.title}
                 >
                   <div className="flex items-center py-[30px]">
-                    <Link href={h.link}>
+                    <Link href={h.link} locale={locale}>
                       <a className="inline-block font-semibold group-hover:animate-up-to-down">
                         {h.title}
                       </a>
@@ -60,9 +64,9 @@ export default function Header() {
                       {h.items.map((i) => (
                         <li
                           className=" relative whitespace-nowrap shadow-2"
-                          key={i.title}
+                          key={`${i.title} ${h.title}`}
                         >
-                          <Link href={h.link}>
+                          <Link href={h.link} locale={locale}>
                             <a
                               className={[
                                 'inline-block w-[200px] px-[30px] py-[10px]  duration-300  hover:pl-[50px] hover:text-primary',

@@ -19,7 +19,7 @@ export const HEADERS = [
   },
   {
     title: 'Services',
-    link: '/pages',
+    link: '/services',
     items: [
       {
         title: 'About Us',

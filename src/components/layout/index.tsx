@@ -10,7 +10,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <Header />
-      <main className="static z-0 h-[1000px]">{children}</main>
+      <main className="static z-0">{children}</main>
       <Footer />
     </>
   );
