@@ -1,7 +1,5 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Button from 'components/button';
-import Box, { TYPE_ANIMATION } from 'components/box';
 import React from 'react';
 import HomePage from 'components/home-page';
 
@@ -14,42 +12,6 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HomePage />
-      {/* <Button>Service</Button>
-      <Box typeAnimation={TYPE_ANIMATION.translate}>Service</Box>
-      <div className="h-[10px]"></div>
-      <Box typeAnimation={TYPE_ANIMATION.shadow}>Service</Box>
-      <Box
-        typeAnimation={TYPE_ANIMATION.custom}
-        className="group animate-move1 shadow-1"
-      >
-        <span className="inline-block group-hover:animate-left-to-right">
-          Service
-        </span>
-      </Box>
-      <Box
-        typeAnimation={TYPE_ANIMATION.custom}
-        className="group animate-move2 shadow-1"
-      >
-        <span className="inline-block group-hover:animate-left-to-right">
-          Service
-        </span>
-      </Box>
-      <Box
-        typeAnimation={TYPE_ANIMATION.custom}
-        className="group animate-move3 shadow-1"
-      >
-        <span className="inline-block group-hover:animate-left-to-right">
-          Service
-        </span>
-      </Box>
-      <Box
-        typeAnimation={TYPE_ANIMATION.custom}
-        className="group animate-move3 shadow-1"
-      >
-        <span className="inline-block group-hover:animate-up-to-down">
-          Service
-        </span>
-      </Box> */}
     </div>
   );
 };

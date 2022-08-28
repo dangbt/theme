@@ -60,13 +60,13 @@ export default function Header() {
                     {hasChild && <ChevronDownIcon width={20} height={20} />}
                   </div>
                   {hasChild && (
-                    <ul className="absolute mt-[20px] bg-white py-[2px] opacity-0 transition-all group-hover:mt-0 group-hover:opacity-100">
+                    <ul className="absolute mt-[20px] h-0 overflow-auto bg-white py-[2px] opacity-0 transition-all group-hover:mt-0 group-hover:h-auto group-hover:overflow-visible group-hover:opacity-100">
                       {h.items.map((i) => (
                         <li
                           className=" relative whitespace-nowrap shadow-2"
                           key={`${i.title} ${h.title}`}
                         >
-                          <Link href={h.link} locale={locale}>
+                          <Link href={i.link} locale={locale}>
                             <a
                               className={[
                                 'inline-block w-[200px] px-[30px] py-[10px]  duration-300  hover:pl-[50px] hover:text-primary',

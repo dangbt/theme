@@ -6,6 +6,9 @@ const nextConfig = {
     defaultLocale: 'en',
     localeDetection: false,
   },
+  images: {
+    domains: ['samartheme1.vercel.app'],
+  },
 };
 
 module.exports = nextConfig;

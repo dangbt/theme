@@ -36,8 +36,8 @@ export const HEADERS = [
     link: '/pages',
     items: [
       {
-        title: 'About Us',
-        link: '/about-us',
+        title: 'List',
+        link: '/blog',
       },
       {
         title: 'Faq',

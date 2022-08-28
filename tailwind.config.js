@@ -37,6 +37,9 @@ module.exports = {
     boxShadow: {
       1: '0 0 10px 4px rgb(31 66 135 / 10%)',
       2: '0 1px 40px 0 rgb(0 0 0 / 10%)',
+      yellow: '0 2px 15px rgb(255 168 8 / 50%)',
+      red: '0 2px 15px rgb(255 88 110 / 50%)',
+      green: '0 2px 15px rgb(2 158 118 / 50%)',
     },
     animation: {
       'left-to-right': 'toLeftFromRight .5s forwards',
@@ -177,6 +180,16 @@ module.exports = {
         '.text-body-1': {
           'font-weight': '400',
           'font-size': '15px',
+          'line-height': '1.2',
+        },
+        '.text-body-2': {
+          'font-weight': '400',
+          'font-size': '18px',
+          'line-height': '1.2',
+        },
+        '.text-body-3': {
+          'font-weight': '400',
+          'font-size': '14px',
           'line-height': '1.2',
         },
       });
