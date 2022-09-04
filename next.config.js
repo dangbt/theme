@@ -7,7 +7,10 @@ const nextConfig = {
     localeDetection: false,
   },
   images: {
-    domains: ['samartheme1.vercel.app'],
+    domains: ['samartheme1.vercel.app', 'localhost'],
+  },
+  env: {
+    BASE_URL: process.env.BASE_URL,
   },
 };
 
