@@ -81,3 +81,13 @@ export interface Blogs {
   data: Blog[];
   meta: Meta;
 }
+
+export interface MetaTag {
+  description: string;
+  modifiedTime: string;
+  publishedTime: string;
+  siteName: string;
+  title: string;
+  url: string;
+  image: string;
+}
