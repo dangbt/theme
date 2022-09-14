@@ -34,7 +34,7 @@ export default function Footer({ footer }: FooterProps) {
       getDataFromObject(footer, 'box'),
     ];
   }, [footer]);
-
+  if (!logo || !phone || !email || !address || !box) return null;
   return (
     <footer
       className={`bg-primary bg-[url('/images/bg10.png')] bg-cover  bg-center bg-no-repeat`}
