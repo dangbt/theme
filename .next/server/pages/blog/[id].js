@@ -52,7 +52,7 @@ var formta_date = __webpack_require__(4923);
 
 function BlogDetailComponent({ blog  }) {
     const { 0: logo , 1: name , 2: description , 3: createdAt , 4: username  } = (0,external_react_.useMemo)(()=>[
-            (0,get_data/* getDataFromObject */.l)(blog, "data.attributes.thumnail.data.attributes.formats.large.url"),
+            (0,get_data/* getDataFromObject */.l)(blog, "data.attributes.thumnail.data.attributes.url"),
             (0,get_data/* getDataFromObject */.l)(blog, "data.attributes.name"),
             (0,get_data/* getDataFromObject */.l)(blog, "data.attributes.description"),
             (0,formta_date/* formatDate */.p)(new Date((0,get_data/* getDataFromObject */.l)(blog, "data.attributes.createdAt"))),
@@ -60,6 +60,7 @@ function BlogDetailComponent({ blog  }) {
         ], [
         blog
     ]);
+    if (!logo || !name || !description) return null;
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         className: "",
         children: [

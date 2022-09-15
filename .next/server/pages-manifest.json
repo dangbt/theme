@@ -7,8 +7,8 @@
   "/blog/[id]": "pages/blog/[id].js",
   "/en/404": "pages/en/404.html",
   "/vn/404": "pages/vn/404.html",
-  "/en/about-us": "pages/en/about-us.html",
-  "/vn/about-us": "pages/vn/about-us.html",
   "/en/500": "pages/en/500.html",
-  "/vn/500": "pages/vn/500.html"
+  "/vn/500": "pages/vn/500.html",
+  "/en/about-us": "pages/en/about-us.html",
+  "/vn/about-us": "pages/vn/about-us.html"
 }

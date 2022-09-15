@@ -56,7 +56,7 @@ var router_ = __webpack_require__(1853);
 function SingleBlog({ blog  }) {
     const router = (0,router_.useRouter)();
     const { 0: logo , 1: name , 2: sortDescription , 3: createdAt , 4: username  } = (0,external_react_.useMemo)(()=>[
-            (0,get_data/* getDataFromObject */.l)(blog, "attributes.thumnail.data.attributes.formats.large.url"),
+            (0,get_data/* getDataFromObject */.l)(blog, "attributes.thumnail.data.attributes.url"),
             (0,get_data/* getDataFromObject */.l)(blog, "attributes.name"),
             (0,get_data/* getDataFromObject */.l)(blog, "attributes.sort_description"),
             (0,formta_date/* formatDate */.p)(new Date((0,get_data/* getDataFromObject */.l)(blog, "attributes.createdAt"))),
@@ -67,6 +67,7 @@ function SingleBlog({ blog  }) {
     const handleClick = (blogId)=>{
         router.push(`/blog/${blogId}`);
     };
+    if (!logo || !name || !sortDescription) return null;
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         onClick: ()=>handleClick(blog.id),
         className: "group mb-[30px] cursor-pointer rounded-[10px] shadow-1",

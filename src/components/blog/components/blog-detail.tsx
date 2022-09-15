@@ -18,10 +18,7 @@ interface Props {
 export default function BlogDetailComponent({ blog }: Props) {
   const [logo, name, description, createdAt, username] = useMemo(
     () => [
-      getDataFromObject(
-        blog,
-        'data.attributes.thumnail.data.attributes.formats.large.url',
-      ),
+      getDataFromObject(blog, 'data.attributes.thumnail.data.attributes.url'),
       getDataFromObject(blog, 'data.attributes.name'),
       getDataFromObject(blog, 'data.attributes.description'),
       formatDate(
@@ -34,7 +31,7 @@ export default function BlogDetailComponent({ blog }: Props) {
     ],
     [blog],
   );
-
+  if (!logo || !name || !description) return null;
   return (
     <div className="">
       <div className="mb-[30px] rounded-[10px] ">

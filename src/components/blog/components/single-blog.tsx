@@ -21,10 +21,7 @@ export default function SingleBlog({ blog }: Props) {
 
   const [logo, name, sortDescription, createdAt, username] = useMemo(
     () => [
-      getDataFromObject(
-        blog,
-        'attributes.thumnail.data.attributes.formats.large.url',
-      ),
+      getDataFromObject(blog, 'attributes.thumnail.data.attributes.url'),
       getDataFromObject(blog, 'attributes.name'),
       getDataFromObject(blog, 'attributes.sort_description'),
       formatDate(new Date(getDataFromObject(blog, 'attributes.createdAt'))),
@@ -39,6 +36,7 @@ export default function SingleBlog({ blog }: Props) {
   const handleClick = (blogId: number) => {
     router.push(`/blog/${blogId}`);
   };
+  if (!logo || !name || !sortDescription) return null;
 
   return (
     <div

@@ -16,7 +16,7 @@ const END_POINTS = {
     TAG: "/api/tags",
     CATEGORY: "/api/categories",
     BLOG: "/api/blogs",
-    BASE_URL: "http://localhost:1337"
+    BASE_URL: "http://165.22.253.251:1337"
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (END_POINTS);
 
