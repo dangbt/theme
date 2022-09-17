@@ -2,13 +2,13 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
-  "/blog": "pages/blog.js",
   "/blog/[id]": "pages/blog/[id].js",
-  "/en/404": "pages/en/404.html",
-  "/vn/404": "pages/vn/404.html",
+  "/blog": "pages/blog.js",
+  "/": "pages/index.js",
   "/en/about-us": "pages/en/about-us.html",
   "/vn/about-us": "pages/vn/about-us.html",
+  "/en/404": "pages/en/404.html",
+  "/vn/404": "pages/vn/404.html",
   "/en/500": "pages/en/500.html",
   "/vn/500": "pages/vn/500.html"
 }
