@@ -10,6 +10,7 @@ import { Blog, Categories, MetaTag, Tag, Tags as ITags } from 'interface';
 import { getDataFromObject } from 'utils/get-data';
 import Head from 'next/head';
 import END_POINTS from 'fetcher/endpoint';
+import Breadcrumb from 'components/breadcrumb';
 interface Props {
   tags: ITags;
   categories: Categories;
@@ -38,35 +39,43 @@ export default function BlogDetail({ tags, categories, blog, metaTag }: Props) {
         <meta name="article:published_time" content={metaTag.publishedTime} />
         <meta name="article:modified_time" content={metaTag.modifiedTime} />
       </Head>
-      <div className="container mt-[150px] px-[20px] md:flex md:p-0 md:pb-[30px]">
-        <div className="mb-[30px] w-full md:mr-[30px] md:mb-0 md:w-2/3">
-          <BlogDetailComponent blog={blog} />
-          <div className="my-[20px] border-t border-[#e1e1f0]" />
-          <div className="mb-[50px]">
-            Tags:{' '}
-            {tagsOfBlog.data.length > 0 &&
-              tagsOfBlog.data.map(
-                (t: Tag) => `#${getDataFromObject(t, 'attributes.name')} `,
-              )}
+      <div>
+        <div className="relative flex h-[400px] items-center bg-[url(https://samartheme1.vercel.app/images/banner/bnr1.jpg)] bg-cover bg-no-repeat opacity-75 after:absolute after:left-0 after:right-0 after:top-0 after:bottom-0 after:bg-primary after:opacity-75">
+          <div className="container relative z-10">
+            <div className="text-[48px] text-white">Blog detail</div>
+            <Breadcrumb />
           </div>
-          <RelatedBlogs />
         </div>
-        <div className=" w-full md:w-1/3">
-          <div className="sticky top-[120px]">
-            <div className="mb-[30px]">
-              <Search />
+        <div className="container mt-[150px] px-[20px] md:flex md:p-0 md:pb-[30px]">
+          <div className="mb-[30px] w-full md:mr-[30px] md:mb-0 md:w-2/3">
+            <BlogDetailComponent blog={blog} />
+            <div className="my-[20px] border-t border-[#e1e1f0]" />
+            <div className="mb-[50px]">
+              Tags:{' '}
+              {tagsOfBlog.data.length > 0 &&
+                tagsOfBlog.data.map(
+                  (t: Tag) => `#${getDataFromObject(t, 'attributes.name')} `,
+                )}
             </div>
-            <div className="mb-[30px]">
-              <Category categories={categories} />
-            </div>
-            <div className="mb-[30px]">
-              <RecentPosts />
-            </div>
-            <div className="mb-[30px]">
-              <Archives />
-            </div>
-            <div className="mb-[30px]">
-              <Tags tags={tags} />
+            <RelatedBlogs />
+          </div>
+          <div className=" w-full md:w-1/3">
+            <div className="sticky top-[120px]">
+              <div className="mb-[30px]">
+                <Search />
+              </div>
+              <div className="mb-[30px]">
+                <Category categories={categories} />
+              </div>
+              <div className="mb-[30px]">
+                <RecentPosts />
+              </div>
+              <div className="mb-[30px]">
+                <Archives />
+              </div>
+              <div className="mb-[30px]">
+                <Tags tags={tags} />
+              </div>
             </div>
           </div>
         </div>

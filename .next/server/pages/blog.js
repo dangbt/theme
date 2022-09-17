@@ -272,7 +272,10 @@ function Pagination({ totalPage , handleChangePage , handleChangeSize , page , t
     });
 };
 
+// EXTERNAL MODULE: ./src/components/breadcrumb/index.tsx
+var breadcrumb = __webpack_require__(1902);
 ;// CONCATENATED MODULE: ./src/components/blog/blog.tsx
+
 
 
 
@@ -306,57 +309,74 @@ function Blog({ tags , categories , blogs  }) {
         blogs
     ]);
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-        className: "container mt-[150px] px-[20px] md:flex md:p-0 md:pb-[30px]",
         children: [
+            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                className: "relative flex h-[400px] items-center bg-[url(https://samartheme1.vercel.app/images/banner/bnr1.jpg)] bg-cover bg-no-repeat opacity-75 after:absolute after:left-0 after:right-0 after:top-0 after:bottom-0 after:bg-primary after:opacity-75",
+                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                    className: "container relative z-10",
+                    children: [
+                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                            className: "text-[48px] text-white",
+                            children: "Blog"
+                        }),
+                        /*#__PURE__*/ jsx_runtime_.jsx(breadcrumb/* default */.Z, {})
+                    ]
+                })
+            }),
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                className: "mb-[30px] w-full md:mr-[30px] md:mb-0 md:w-2/3",
+                className: "container mt-[150px] px-[20px] md:flex md:p-0 md:pb-[30px]",
                 children: [
-                    blogs && blogs.data && blogs.data.length > 0 && blogs.data.map((b, i)=>/*#__PURE__*/ jsx_runtime_.jsx(SingleBlog, {
-                            blog: b
-                        }, i)),
+                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                        className: "mb-[30px] w-full md:mr-[30px] md:mb-0 md:w-2/3",
+                        children: [
+                            blogs && blogs.data && blogs.data.length > 0 && blogs.data.map((b, i)=>/*#__PURE__*/ jsx_runtime_.jsx(SingleBlog, {
+                                    blog: b
+                                }, i)),
+                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                children: pageCount > 1 && /*#__PURE__*/ jsx_runtime_.jsx(Pagination, {
+                                    page: page,
+                                    totalPage: pageCount,
+                                    handleChangePage: handleChangePage,
+                                    handleChangeSize: handleChangeSize,
+                                    total: total,
+                                    size: pageSize || 2
+                                })
+                            })
+                        ]
+                    }),
                     /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        children: pageCount > 1 && /*#__PURE__*/ jsx_runtime_.jsx(Pagination, {
-                            page: page,
-                            totalPage: pageCount,
-                            handleChangePage: handleChangePage,
-                            handleChangeSize: handleChangeSize,
-                            total: total,
-                            size: pageSize || 2
+                        className: " w-full md:w-1/3",
+                        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                            className: "sticky top-[120px]",
+                            children: [
+                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                    className: "mb-[30px]",
+                                    children: /*#__PURE__*/ jsx_runtime_.jsx(search/* default */.Z, {})
+                                }),
+                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                    className: "mb-[30px]",
+                                    children: /*#__PURE__*/ jsx_runtime_.jsx(category/* default */.Z, {
+                                        categories: categories
+                                    })
+                                }),
+                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                    className: "mb-[30px]",
+                                    children: /*#__PURE__*/ jsx_runtime_.jsx(recent_posts/* default */.Z, {})
+                                }),
+                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                    className: "mb-[30px]",
+                                    children: /*#__PURE__*/ jsx_runtime_.jsx(archives/* default */.Z, {})
+                                }),
+                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                    className: "mb-[30px]",
+                                    children: /*#__PURE__*/ jsx_runtime_.jsx(components_tags/* default */.Z, {
+                                        tags: tags
+                                    })
+                                })
+                            ]
                         })
                     })
                 ]
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                className: " w-full md:w-1/3",
-                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                    className: "sticky top-[120px]",
-                    children: [
-                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                            className: "mb-[30px]",
-                            children: /*#__PURE__*/ jsx_runtime_.jsx(search/* default */.Z, {})
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                            className: "mb-[30px]",
-                            children: /*#__PURE__*/ jsx_runtime_.jsx(category/* default */.Z, {
-                                categories: categories
-                            })
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                            className: "mb-[30px]",
-                            children: /*#__PURE__*/ jsx_runtime_.jsx(recent_posts/* default */.Z, {})
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                            className: "mb-[30px]",
-                            children: /*#__PURE__*/ jsx_runtime_.jsx(archives/* default */.Z, {})
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                            className: "mb-[30px]",
-                            children: /*#__PURE__*/ jsx_runtime_.jsx(components_tags/* default */.Z, {
-                                tags: tags
-                            })
-                        })
-                    ]
-                })
             })
         ]
     });
@@ -461,10 +481,38 @@ module.exports = require("date-fns");
 
 /***/ }),
 
+/***/ 3280:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/app-router-context.js");
+
+/***/ }),
+
+/***/ 2796:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/head-manager-context.js");
+
+/***/ }),
+
 /***/ 4957:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/head.js");
+
+/***/ }),
+
+/***/ 3539:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/i18n/detect-domain-locale.js");
+
+/***/ }),
+
+/***/ 4014:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/i18n/normalize-locale-path.js");
 
 /***/ }),
 
@@ -482,6 +530,90 @@ module.exports = require("next/dist/shared/lib/image-config.js");
 
 /***/ }),
 
+/***/ 8524:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/is-plain-object.js");
+
+/***/ }),
+
+/***/ 8020:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/mitt.js");
+
+/***/ }),
+
+/***/ 4406:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/page-path/denormalize-page-path.js");
+
+/***/ }),
+
+/***/ 4964:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router-context.js");
+
+/***/ }),
+
+/***/ 3431:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/add-locale.js");
+
+/***/ }),
+
+/***/ 1751:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/add-path-prefix.js");
+
+/***/ }),
+
+/***/ 6220:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/compare-states.js");
+
+/***/ }),
+
+/***/ 299:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/format-next-pathname-info.js");
+
+/***/ }),
+
+/***/ 3938:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/format-url.js");
+
+/***/ }),
+
+/***/ 9565:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/get-asset-path-from-route.js");
+
+/***/ }),
+
+/***/ 5789:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/get-next-pathname-info.js");
+
+/***/ }),
+
+/***/ 1428:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/is-dynamic.js");
+
+/***/ }),
+
 /***/ 8854:
 /***/ ((module) => {
 
@@ -489,10 +621,52 @@ module.exports = require("next/dist/shared/lib/router/utils/parse-path.js");
 
 /***/ }),
 
+/***/ 1292:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/parse-relative-url.js");
+
+/***/ }),
+
+/***/ 4567:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/path-has-prefix.js");
+
+/***/ }),
+
+/***/ 979:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/querystring.js");
+
+/***/ }),
+
 /***/ 3297:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/router/utils/remove-trailing-slash.js");
+
+/***/ }),
+
+/***/ 6052:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/resolve-rewrites.js");
+
+/***/ }),
+
+/***/ 4226:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/route-matcher.js");
+
+/***/ }),
+
+/***/ 5052:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/route-regex.js");
 
 /***/ }),
 
@@ -538,7 +712,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [675,337,274,823], () => (__webpack_exec__(8405)));
+var __webpack_exports__ = __webpack_require__.X(0, [676,61,337,274,812], () => (__webpack_exec__(8405)));
 module.exports = __webpack_exports__;
 
 })();
