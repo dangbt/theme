@@ -43,6 +43,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       blog,
       'data.attributes.thumnail.data.attributes.formats.small.url',
     ),
+    publisher: getDataFromObject(
+      blog,
+      'data.attributes.users_permissions_user.data.attributes.username',
+    ),
   };
 
   // Pass data to the page via props

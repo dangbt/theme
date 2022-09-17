@@ -407,7 +407,9 @@ function Breadcrumb() {
                     className: "relative cursor-pointer after:absolute after:right-[-32px] after:top-[0px] after:h-[24px] after:w-[24px] after:text-[15px] after:content-['>']",
                     children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_2___default()), {
                         href: "/",
-                        children: "Home"
+                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
+                            children: "Home"
+                        })
                     })
                 }),
                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {

@@ -90,4 +90,5 @@ export interface MetaTag {
   title: string;
   url: string;
   image: string;
+  publisher: string;
 }

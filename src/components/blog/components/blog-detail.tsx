@@ -37,7 +37,7 @@ export default function BlogDetailComponent({ blog }: Props) {
       <div className="mb-[30px] rounded-[10px] ">
         <Image
           src={`${END_POINTS.BASE_URL}${logo}`}
-          alt=""
+          alt={logo}
           width="750px"
           height="350px"
           layout="responsive"
