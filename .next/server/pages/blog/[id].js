@@ -4,7 +4,18 @@ exports.id = 610;
 exports.ids = [610];
 exports.modules = {
 
-/***/ 4710:
+/***/ 5661:
+/***/ ((module) => {
+
+// Exports
+module.exports = {
+	"blogDetailContent": "blogdetail_blogDetailContent__BBcDv"
+};
+
+
+/***/ }),
+
+/***/ 6041:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -42,7 +53,15 @@ var endpoint = __webpack_require__(4932);
 var get_data = __webpack_require__(4165);
 // EXTERNAL MODULE: ./src/utils/formta-date.tsx
 var formta_date = __webpack_require__(4923);
+;// CONCATENATED MODULE: external "react-showdown"
+const external_react_showdown_namespaceObject = require("react-showdown");
+var external_react_showdown_default = /*#__PURE__*/__webpack_require__.n(external_react_showdown_namespaceObject);
+// EXTERNAL MODULE: ./src/components/blog/components/blogdetail.module.css
+var blogdetail_module = __webpack_require__(5661);
+var blogdetail_module_default = /*#__PURE__*/__webpack_require__.n(blogdetail_module);
 ;// CONCATENATED MODULE: ./src/components/blog/components/blog-detail.tsx
+
+
 
 
 
@@ -61,6 +80,12 @@ function BlogDetailComponent({ blog  }) {
         blog
     ]);
     if (!logo || !name || !description) return null;
+    const formartedDesc = description.split("(").map((d)=>{
+        if (d.includes("/uploads/")) {
+            return `${endpoint/* default.BASE_URL */.Z.BASE_URL}${d}`;
+        }
+        return d;
+    }).join("(");
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         className: "",
         children: [
@@ -123,15 +148,17 @@ function BlogDetailComponent({ blog  }) {
                 ]
             }),
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                className: "p-[30px] text-center",
+                className: "p-[30px]",
                 children: [
                     /*#__PURE__*/ jsx_runtime_.jsx("h1", {
-                        className: "text-heading-4 mb-[15px]",
+                        className: "text-heading-4 mb-[15px] text-center",
                         children: name
                     }),
-                    /*#__PURE__*/ jsx_runtime_.jsx("p", {
-                        className: "text-body-1",
-                        children: description
+                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                        className: (blogdetail_module_default()).blogDetailContent,
+                        children: /*#__PURE__*/ jsx_runtime_.jsx((external_react_showdown_default()), {
+                            markdown: formartedDesc
+                        })
                     })
                 ]
             })
@@ -777,7 +804,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [676,61,337,274,812], () => (__webpack_exec__(4710)));
+var __webpack_exports__ = __webpack_require__.X(0, [676,61,337,274,812], () => (__webpack_exec__(6041)));
 module.exports = __webpack_exports__;
 
 })();

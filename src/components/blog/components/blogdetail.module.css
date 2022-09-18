@@ -1,0 +1,21 @@
+.blogDetailContent ul {
+  list-style-type: disc;
+  list-style: inside;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.blogDetailContent h1 {
+  font-size: 16px;
+
+}
+.blogDetailContent h2 {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+.blogDetailContent p {
+  margin-bottom: 12px;
+}
+.blogDetailContent img {
+  margin: 0 auto;
+}

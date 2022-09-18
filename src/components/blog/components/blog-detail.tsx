@@ -10,6 +10,8 @@ import { Blog } from 'interface';
 import END_POINTS from 'fetcher/endpoint';
 import { getDataFromObject } from 'utils/get-data';
 import { formatDate } from 'utils/formta-date';
+import MarkdownView from 'react-showdown';
+import style from './blogdetail.module.css';
 
 interface Props {
   blog: Blog;
@@ -32,6 +34,17 @@ export default function BlogDetailComponent({ blog }: Props) {
     [blog],
   );
   if (!logo || !name || !description) return null;
+
+  const formartedDesc = description
+    .split('(')
+    .map((d: string) => {
+      if (d.includes('/uploads/')) {
+        return `${END_POINTS.BASE_URL}${d}`;
+      }
+      return d;
+    })
+    .join('(');
+
   return (
     <div className="">
       <div className="mb-[30px] rounded-[10px] ">
@@ -65,9 +78,11 @@ export default function BlogDetailComponent({ blog }: Props) {
           </div>
         </div>
       </div>
-      <div className="p-[30px] text-center">
-        <h1 className="text-heading-4 mb-[15px]">{name}</h1>
-        <p className="text-body-1">{description}</p>
+      <div className="p-[30px]">
+        <h1 className="text-heading-4 mb-[15px] text-center">{name}</h1>
+        <div className={style.blogDetailContent}>
+          <MarkdownView markdown={formartedDesc} />
+        </div>
       </div>
     </div>
   );
