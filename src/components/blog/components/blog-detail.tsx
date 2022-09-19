@@ -20,15 +20,13 @@ interface Props {
 export default function BlogDetailComponent({ blog }: Props) {
   const [logo, name, description, createdAt, username] = useMemo(
     () => [
-      getDataFromObject(blog, 'data.attributes.thumnail.data.attributes.url'),
-      getDataFromObject(blog, 'data.attributes.name'),
-      getDataFromObject(blog, 'data.attributes.description'),
-      formatDate(
-        new Date(getDataFromObject(blog, 'data.attributes.createdAt')),
-      ),
+      getDataFromObject(blog, 'attributes.thumnail.data.attributes.url'),
+      getDataFromObject(blog, 'attributes.name'),
+      getDataFromObject(blog, 'attributes.description'),
+      formatDate(new Date(getDataFromObject(blog, 'attributes.createdAt'))),
       getDataFromObject(
         blog,
-        'data.attributes.users_permissions_user.data.attributes.username',
+        'attributes.users_permissions_user.data.attributes.username',
       ),
     ],
     [blog],

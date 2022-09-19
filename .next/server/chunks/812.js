@@ -114,10 +114,12 @@ function Archives() {
 function Category({ categories  }) {
     const router = (0,next_router__WEBPACK_IMPORTED_MODULE_4__.useRouter)();
     const handleClick = (name)=>()=>{
+            const query = router.query;
+            delete query.slug;
             router.push({
                 pathname: "/blog",
                 query: {
-                    ...router.query,
+                    ...query,
                     category: name,
                     page: 1
                 }

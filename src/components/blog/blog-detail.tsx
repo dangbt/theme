@@ -20,7 +20,7 @@ interface Props {
 }
 
 export default function BlogDetail({ tags, categories, blog, metaTag }: Props) {
-  const tagsOfBlog = getDataFromObject(blog, 'data.attributes.tags');
+  const tagsOfBlog = getDataFromObject(blog, 'attributes.tags');
   return (
     <>
       <Head>

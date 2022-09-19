@@ -16,7 +16,7 @@ interface GetApi {
 
 const instance = axios.create({
   baseURL: process.env.BASE_URL,
-  timeout: 1000,
+  timeout: 10000,
 });
 
 export const get = ({ url }: GetApi) => {

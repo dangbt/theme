@@ -14,7 +14,7 @@ const END_POINTS = {
     TAG: "/api/tags",
     CATEGORY: "/api/categories",
     BLOG: "/api/blogs",
-    BASE_URL: "http://165.22.253.251:1337"
+    BASE_URL: "http://localhost:1337"
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (END_POINTS);
 
@@ -45,8 +45,8 @@ var Methods;
     Methods["POST"] = "post";
 })(Methods || (Methods = {}));
 const instance = external_axios_default().create({
-    baseURL: "http://165.22.253.251:1337",
-    timeout: 1000
+    baseURL: "http://localhost:1337",
+    timeout: 10000
 });
 const get = ({ url  })=>{
     return instance({
@@ -103,8 +103,15 @@ const getBlogs = (objectQuery)=>{
         url
     });
 };
-const getBlogDetail = (blogId)=>{
-    const url = `${endpoint/* default.BLOG */.Z.BLOG}/${blogId}?populate=*`;
+const getBlogDetail = (slug)=>{
+    const filters = {
+        filters: {
+            slug: {
+                $eq: slug
+            }
+        }
+    };
+    const url = `${endpoint/* default.BLOG */.Z.BLOG}?populate=*&&${formatObjectToString(filters)}`;
     return get({
         url
     });

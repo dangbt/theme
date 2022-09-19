@@ -19,7 +19,7 @@ interface Props {
 export default function SingleBlog({ blog }: Props) {
   const router = useRouter();
 
-  const [logo, name, sortDescription, createdAt, username] = useMemo(
+  const [logo, name, sortDescription, createdAt, username, slug] = useMemo(
     () => [
       getDataFromObject(blog, 'attributes.thumnail.data.attributes.url'),
       getDataFromObject(blog, 'attributes.name'),
@@ -29,18 +29,19 @@ export default function SingleBlog({ blog }: Props) {
         blog,
         'attributes.users_permissions_user.data.attributes.username',
       ),
+      getDataFromObject(blog, 'attributes.slug'),
     ],
     [blog],
   );
 
-  const handleClick = (blogId: number) => {
-    router.push(`/blog/${blogId}`);
+  const handleClick = () => {
+    router.push(`/blog/${slug}`);
   };
   if (!logo || !name || !sortDescription) return null;
 
   return (
     <div
-      onClick={() => handleClick(blog.id)}
+      onClick={handleClick}
       className="group mb-[30px] cursor-pointer rounded-[10px] shadow-1"
     >
       <div className="rounded-t-[10px] group-hover:rounded-t-[10px]">

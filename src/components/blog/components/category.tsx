@@ -12,10 +12,12 @@ export default function Category({ categories }: Props) {
   const router = useRouter();
 
   const handleClick = (name: string) => () => {
+    const query = router.query;
+    delete query.slug;
     router.push({
       pathname: '/blog',
       query: {
-        ...router.query,
+        ...query,
         category: name,
         page: 1,
       },

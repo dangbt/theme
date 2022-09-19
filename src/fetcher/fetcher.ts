@@ -21,7 +21,14 @@ export const getBlogs = (objectQuery: any) => {
   return get({ url });
 };
 
-export const getBlogDetail = (blogId: string) => {
-  const url = `${END_POINTS.BLOG}/${blogId}?populate=*`;
+export const getBlogDetail = (slug: string) => {
+  const filters = {
+    filters: {
+      slug: {
+        $eq: slug,
+      },
+    },
+  };
+  const url = `${END_POINTS.BLOG}?populate=*&&${formatObjectToString(filters)}`;
   return get({ url });
 };
