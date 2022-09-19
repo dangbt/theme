@@ -92,15 +92,15 @@ export default function BlogDetail({ tags, categories, blog, metaTag }: Props) {
             "image": "${END_POINTS.BASE_URL}${metaTag.image}",
             "articleBody": "${metaTag.description}",
             "url": "${metaTag.url}",
-            "publisher": {
+            "publisher": "{
               "@type": "Organization",
               "name": "${metaTag.publisher}",
-            },
-            "aggregateRating": {
+            }",
+            "aggregateRating": "{
               "@type":"AggregateRating",
               "ratingValue":${5},
               "reviewCount":${1000},
-            },
+            }",
           }
         `}
       </Script>

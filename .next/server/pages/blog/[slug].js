@@ -426,15 +426,15 @@ function BlogDetail({ tags , categories , blog , metaTag  }) {
             "image": "${endpoint/* default.BASE_URL */.Z.BASE_URL}${metaTag.image}",
             "articleBody": "${metaTag.description}",
             "url": "${metaTag.url}",
-            "publisher": {
+            "publisher": "{
               "@type": "Organization",
               "name": "${metaTag.publisher}",
-            },
-            "aggregateRating": {
+            }",
+            "aggregateRating": "{
               "@type":"AggregateRating",
               "ratingValue":${5},
               "reviewCount":${1000},
-            },
+            }",
           }
         `
             })
