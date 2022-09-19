@@ -19,3 +19,9 @@
 .blogDetailContent img {
   margin: 0 auto;
 }
+
+.blogDetailContent a {
+  cursor: pointer;
+  color: rgb(0,0,238);
+  text-decoration: underline;
+}
