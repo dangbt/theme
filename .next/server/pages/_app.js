@@ -16,7 +16,7 @@ const END_POINTS = {
     TAG: "/api/tags",
     CATEGORY: "/api/categories",
     BLOG: "/api/blogs",
-    BASE_URL: "http://165.22.253.251:1337"
+    BASE_URL: "https://admin.webreview.click"
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (END_POINTS);
 
@@ -392,13 +392,6 @@ module.exports = require("next/dist/shared/lib/head.js");
 
 /***/ }),
 
-/***/ 3539:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/i18n/detect-domain-locale.js");
-
-/***/ }),
-
 /***/ 4014:
 /***/ ((module) => {
 
@@ -445,13 +438,6 @@ module.exports = require("next/dist/shared/lib/page-path/denormalize-page-path.j
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/router-context.js");
-
-/***/ }),
-
-/***/ 3431:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router/utils/add-locale.js");
 
 /***/ }),
 
