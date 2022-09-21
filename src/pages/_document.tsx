@@ -1,5 +1,6 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 import React from 'react';
+import Script from 'next/script';
 export default function Document() {
   return (
     <Html lang="vn">
@@ -14,6 +15,21 @@ export default function Document() {
         <meta
           property="og:description"
           content="Webreview | chiến lược marketing | SEO |  Top"
+        />
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-EFNPQ91Y9J"
+        ></Script>
+        <Script
+          id="ga"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-EFNPQ91Y9J');
+          `,
+          }}
         />
       </Head>
       <body>
