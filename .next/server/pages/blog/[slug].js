@@ -15,6 +15,33 @@ module.exports = {
 
 /***/ }),
 
+/***/ 6372:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (/* binding */ Title)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6689);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+
+
+const BEFORE_TITLE = "before:absolute before:left-0 before:w-[5px] before:h-full before:bg-primary before:rounded-[5px]";
+function Title({ title  }) {
+    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h1", {
+        className: [
+            BEFORE_TITLE,
+            "text-heading-4 relative pl-[20px]"
+        ].join(" "),
+        children: title
+    });
+};
+
+
+/***/ }),
+
 /***/ 8054:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -32,16 +59,6 @@ __webpack_require__.d(__webpack_exports__, {
 var jsx_runtime_ = __webpack_require__(997);
 // EXTERNAL MODULE: external "react"
 var external_react_ = __webpack_require__(6689);
-// EXTERNAL MODULE: ./src/components/blog/components/search.tsx
-var search = __webpack_require__(1502);
-// EXTERNAL MODULE: ./src/components/blog/components/category.tsx
-var category = __webpack_require__(6324);
-// EXTERNAL MODULE: ./src/components/blog/components/recent-posts.tsx
-var recent_posts = __webpack_require__(6050);
-// EXTERNAL MODULE: ./src/components/blog/components/archives.tsx
-var archives = __webpack_require__(4997);
-// EXTERNAL MODULE: ./src/components/blog/components/tags.tsx
-var components_tags = __webpack_require__(1559);
 // EXTERNAL MODULE: external "@heroicons/react/outline"
 var outline_ = __webpack_require__(8768);
 // EXTERNAL MODULE: ./node_modules/next/image.js
@@ -51,8 +68,8 @@ var image_default = /*#__PURE__*/__webpack_require__.n(next_image);
 var endpoint = __webpack_require__(4932);
 // EXTERNAL MODULE: ./src/utils/get-data.tsx
 var get_data = __webpack_require__(4165);
-// EXTERNAL MODULE: ./src/utils/formta-date.tsx
-var formta_date = __webpack_require__(4923);
+// EXTERNAL MODULE: ./src/utils/formta-date.tsx + 1 modules
+var formta_date = __webpack_require__(4269);
 ;// CONCATENATED MODULE: external "react-showdown"
 const external_react_showdown_namespaceObject = require("react-showdown");
 var external_react_showdown_default = /*#__PURE__*/__webpack_require__.n(external_react_showdown_namespaceObject);
@@ -191,7 +208,7 @@ function SingleRelatedBlog() {
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                 className: "p-[30px] text-center",
                 children: [
-                    /*#__PURE__*/ jsx_runtime_.jsx("h1", {
+                    /*#__PURE__*/ jsx_runtime_.jsx("h2", {
                         className: "text-heading-5 mb-[15px]",
                         children: "Fusce sem ligula, imperdiet sed nisi sit amet, euismod posuere dolor."
                     }),
@@ -277,11 +294,11 @@ function RelatedBlogs() {
 // EXTERNAL MODULE: external "next/head"
 var head_ = __webpack_require__(968);
 var head_default = /*#__PURE__*/__webpack_require__.n(head_);
-// EXTERNAL MODULE: ./src/components/breadcrumb/index.tsx
-var breadcrumb = __webpack_require__(1902);
 // EXTERNAL MODULE: ./node_modules/next/script.js
 var script = __webpack_require__(4298);
 var script_default = /*#__PURE__*/__webpack_require__.n(script);
+// EXTERNAL MODULE: external "next/router"
+var router_ = __webpack_require__(1853);
 ;// CONCATENATED MODULE: ./src/components/blog/blog-detail.tsx
 
 
@@ -293,12 +310,12 @@ var script_default = /*#__PURE__*/__webpack_require__.n(script);
 
 
 
-
-
-
-
-function BlogDetail({ tags , categories , blog , metaTag  }) {
+function BlogDetail({ blog , metaTag  }) {
     const tagsOfBlog = (0,get_data/* getDataFromObject */.l)(blog, "attributes.tags");
+    const router = (0,router_.useRouter)();
+    const handleBack = ()=>{
+        router.back();
+    };
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
         children: [
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)((head_default()), {
@@ -340,79 +357,39 @@ function BlogDetail({ tags , categories , blog , metaTag  }) {
                     })
                 ]
             }),
-            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                children: [
-                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        className: "relative flex h-[400px] items-center bg-[url(https://samartheme1.vercel.app/images/banner/bnr1.jpg)] bg-cover bg-no-repeat opacity-75 after:absolute after:left-0 after:right-0 after:top-0 after:bottom-0 after:bg-primary after:opacity-75",
-                        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                            className: "container relative z-10",
-                            children: [
-                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                    className: "text-[48px] text-white",
-                                    children: "Blog detail"
-                                }),
-                                /*#__PURE__*/ jsx_runtime_.jsx(breadcrumb/* default */.Z, {})
-                            ]
-                        })
-                    }),
-                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                        className: "container mt-[150px] px-[20px] md:flex md:p-0 md:pb-[30px]",
+            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "container mt-[150px] px-[20px] md:flex md:p-0 md:pb-[30px]",
+                    children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                        className: "mx-auto mb-[30px] w-full md:mb-0 md:w-2/3",
                         children: [
-                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                className: "mb-[30px] w-full md:mr-[30px] md:mb-0 md:w-2/3",
-                                children: [
-                                    /*#__PURE__*/ jsx_runtime_.jsx(BlogDetailComponent, {
-                                        blog: blog
-                                    }),
-                                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                        className: "my-[20px] border-t border-[#e1e1f0]"
-                                    }),
-                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                        className: "mb-[50px]",
-                                        children: [
-                                            "Tags:",
-                                            " ",
-                                            tagsOfBlog.data.length > 0 && tagsOfBlog.data.map((t)=>`#${(0,get_data/* getDataFromObject */.l)(t, "attributes.name")} `)
-                                        ]
-                                    }),
-                                    /*#__PURE__*/ jsx_runtime_.jsx(RelatedBlogs, {})
-                                ]
+                            /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                onClick: handleBack,
+                                className: "group mb-[12px] rounded-hafl p-[4px] hover:bg-dark hover:shadow-1",
+                                children: /*#__PURE__*/ jsx_runtime_.jsx(outline_.ArrowSmLeftIcon, {
+                                    width: 32,
+                                    height: 32,
+                                    className: "text-dark group-hover:text-white"
+                                })
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx(BlogDetailComponent, {
+                                blog: blog
                             }),
                             /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                className: " w-full md:w-1/3",
-                                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                    className: "sticky top-[120px]",
-                                    children: [
-                                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                            className: "mb-[30px]",
-                                            children: /*#__PURE__*/ jsx_runtime_.jsx(search/* default */.Z, {})
-                                        }),
-                                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                            className: "mb-[30px]",
-                                            children: /*#__PURE__*/ jsx_runtime_.jsx(category/* default */.Z, {
-                                                categories: categories
-                                            })
-                                        }),
-                                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                            className: "mb-[30px]",
-                                            children: /*#__PURE__*/ jsx_runtime_.jsx(recent_posts/* default */.Z, {})
-                                        }),
-                                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                            className: "mb-[30px]",
-                                            children: /*#__PURE__*/ jsx_runtime_.jsx(archives/* default */.Z, {})
-                                        }),
-                                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                            className: "mb-[30px]",
-                                            children: /*#__PURE__*/ jsx_runtime_.jsx(components_tags/* default */.Z, {
-                                                tags: tags
-                                            })
-                                        })
-                                    ]
-                                })
-                            })
+                                className: "my-[20px] border-t border-[#e1e1f0]"
+                            }),
+                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                className: "mb-[50px]",
+                                children: [
+                                    "Tags:",
+                                    " ",
+                                    tagsOfBlog.data.length > 0 && tagsOfBlog.data.map((t)=>`#${(0,get_data/* getDataFromObject */.l)(t, "attributes.name")} `)
+                                ]
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx(RelatedBlogs, {})
                         ]
                     })
-                ]
+                })
             }),
             /*#__PURE__*/ jsx_runtime_.jsx((script_default()), {
                 type: "application/ld+json",
@@ -444,7 +421,13 @@ function BlogDetail({ tags , categories , blog , metaTag  }) {
 
 // EXTERNAL MODULE: ./src/fetcher/fetcher.ts + 2 modules
 var fetcher = __webpack_require__(1274);
+// EXTERNAL MODULE: ./src/components/layout/footer.tsx
+var layout_footer = __webpack_require__(4357);
+// EXTERNAL MODULE: ./src/components/layout/header.tsx
+var layout_header = __webpack_require__(8798);
 ;// CONCATENATED MODULE: ./src/pages/blog/[slug].tsx
+
+
 
 
 
@@ -455,6 +438,24 @@ function BlogPage(props) {
         ...props
     });
 };
+const CustomLayout = ({ children , header , footer  })=>{
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+        className: "flex min-h-screen flex-col",
+        children: [
+            /*#__PURE__*/ jsx_runtime_.jsx(layout_header/* default */.Z, {
+                header: header
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx("main", {
+                className: "static z-0 flex-1",
+                children: children
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx(layout_footer/* default */.Z, {
+                footer: footer
+            })
+        ]
+    });
+};
+BlogPage.Layout = CustomLayout;
 // This gets called on every request
 const getServerSideProps = async (context)=>{
     // Fetch data from external API
@@ -494,6 +495,30 @@ const getServerSideProps = async (context)=>{
 
 /***/ }),
 
+/***/ 4269:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "p": () => (/* binding */ formatDate)
+});
+
+;// CONCATENATED MODULE: external "date-fns"
+const external_date_fns_namespaceObject = require("date-fns");
+;// CONCATENATED MODULE: ./src/utils/formta-date.tsx
+
+const formatDate = (date, formatString = "PP")=>{
+    if (date) {
+        return (0,external_date_fns_namespaceObject.format)(date, formatString);
+    }
+    return (0,external_date_fns_namespaceObject.format)(new Date(), formatString);
+};
+
+
+/***/ }),
+
 /***/ 4298:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -523,14 +548,6 @@ module.exports = require("@heroicons/react/solid");
 
 "use strict";
 module.exports = require("axios");
-
-/***/ }),
-
-/***/ 4146:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("date-fns");
 
 /***/ }),
 
@@ -789,7 +806,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [952,61,337,274,812], () => (__webpack_exec__(8054)));
+var __webpack_exports__ = __webpack_require__.X(0, [952,61,274,616], () => (__webpack_exec__(8054)));
 module.exports = __webpack_exports__;
 
 })();

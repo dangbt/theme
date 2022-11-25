@@ -6,8 +6,8 @@ export default function Document() {
     <Html lang="vn">
       <Head>
         <meta property="og:type" content="article" />
-        <meta property="og:site_name" content="Webreview" />
-        <meta property="og:url" content={`https://webreview.click`} />
+        <meta property="og:site_name" content="webchiase" />
+        <meta property="og:url" content={`https://webchiase.online`} />
         <meta
           property="og:title"
           content="Webreview | Contet | SEO | Marketing"

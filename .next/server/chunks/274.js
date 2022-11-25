@@ -46,7 +46,7 @@ var Methods;
 })(Methods || (Methods = {}));
 const instance = external_axios_default().create({
     baseURL: "https://admin.webchiase.online",
-    timeout: 10000
+    timeout: 20000
 });
 const get = ({ url  })=>{
     return instance({

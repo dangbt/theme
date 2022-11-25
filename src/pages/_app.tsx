@@ -4,14 +4,21 @@ import Layout from 'components/layout';
 import React from 'react';
 import { getDataFromObject } from 'utils/get-data';
 
-function MyApp({ Component, pageProps }: AppProps) {
+interface Props extends AppProps {
+  Component: AppProps['Component'] & {
+    Layout: () => JSX.Element;
+  };
+}
+
+function MyApp({ Component, pageProps }: Props) {
+  const L = Component.Layout ? Component.Layout : Layout;
   return (
-    <Layout
+    <L
       header={getDataFromObject(pageProps, 'layout.data.attributes.header')}
       footer={getDataFromObject(pageProps, 'layout.data.attributes.footer')}
     >
       <Component {...pageProps} />
-    </Layout>
+    </L>
   );
 }
 

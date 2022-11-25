@@ -6,6 +6,6 @@
   "/about-us": "pages/about-us.html",
   "/_error": "pages/_error.js",
   "/": "pages/index.js",
-  "/blog/[slug]": "pages/blog/[slug].js",
-  "/blog": "pages/blog.js"
+  "/blog": "pages/blog.js",
+  "/blog/[slug]": "pages/blog/[slug].js"
 }

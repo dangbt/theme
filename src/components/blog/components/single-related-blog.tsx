@@ -21,9 +21,9 @@ export default function SingleRelatedBlog() {
         />
       </div>
       <div className="p-[30px] text-center">
-        <h1 className="text-heading-5 mb-[15px]">
+        <h2 className="text-heading-5 mb-[15px]">
           Fusce sem ligula, imperdiet sed nisi sit amet, euismod posuere dolor.
-        </h1>
+        </h2>
         <p className="text-body-1">
           Sed auctor magna lacus, in placerat nisl sollicitudin ut. Morbi
           feugiat ante velit, eget convallis arcu iaculis vel.
