@@ -3,6 +3,8 @@ import type { AppProps } from 'next/app';
 import Layout from 'components/layout';
 import React from 'react';
 import { getDataFromObject } from 'utils/get-data';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 interface Props extends AppProps {
   Component: AppProps['Component'] & {

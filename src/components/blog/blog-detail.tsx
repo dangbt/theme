@@ -49,7 +49,7 @@ export default function BlogDetail({ blog, metaTag }: Props) {
         <meta name="article:modified_time" content={metaTag.modifiedTime} />
       </Head>
       <div>
-        <div className="container mt-[150px] px-[20px] md:flex md:p-0 md:pb-[30px]">
+        <div className="container px-[20px] md:flex md:p-0 md:pb-[30px]">
           <div className="mx-auto mb-[30px] w-full md:mb-0 md:w-2/3">
             <button
               onClick={handleBack}

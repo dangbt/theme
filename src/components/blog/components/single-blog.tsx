@@ -24,7 +24,10 @@ export default function SingleBlog({ blog }: Props) {
       getDataFromObject(blog, 'attributes.thumnail.data.attributes.url'),
       getDataFromObject(blog, 'attributes.name'),
       getDataFromObject(blog, 'attributes.sort_description'),
-      formatDate(new Date(getDataFromObject(blog, 'attributes.createdAt'))),
+      formatDate(
+        new Date(getDataFromObject(blog, 'attributes.createdAt')),
+        'dd/MM/yy',
+      ),
       getDataFromObject(
         blog,
         'attributes.users_permissions_user.data.attributes.username',
@@ -42,7 +45,7 @@ export default function SingleBlog({ blog }: Props) {
   return (
     <div
       onClick={handleClick}
-      className="group mb-[30px] cursor-pointer rounded-[10px] shadow-1"
+      className="group mx-[10px] mb-[20px] cursor-pointer rounded-[10px] shadow-1"
     >
       <div className="rounded-t-[10px] group-hover:rounded-t-[10px]">
         <Image
@@ -55,10 +58,12 @@ export default function SingleBlog({ blog }: Props) {
         />
       </div>
       <div className="p-[30px] text-center">
-        <h1 className="text-heading-4 mb-[15px]">{name}</h1>
-        <p className="text-body-1">{sortDescription}</p>
+        <h1 className="text-heading-6 mb-[15px] h-[44px] overflow-hidden">
+          {name.slice(0, 40)}
+        </h1>
+        <p className="text-body-1">{sortDescription.slice(0, 100)}...</p>
         <div className="my-[20px] border-t border-[#e1e1f0]" />
-        <div className="flex items-center justify-between">
+        <div className="text-body-3 flex items-center justify-between">
           <div className="flex space-x-[20px]">
             <div className="flex space-x-[10px]">
               <ClockIcon className="text-primary" width={20} />
@@ -74,9 +79,9 @@ export default function SingleBlog({ blog }: Props) {
               <ChatIcon className="text-primary" width={20} />
               <span>15</span>
             </div> */}
-            <div className="flex space-x-[10px]">
+            {/* <div className="flex space-x-[10px]">
               <ShareIcon className="text-primary" width={20} />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

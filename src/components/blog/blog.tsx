@@ -9,15 +9,20 @@ import Pagination from 'components/pagination';
 import { Blogs, Categories, Tags as ITags } from 'interface';
 import { getDataFromObject } from 'utils/get-data';
 import { useRouter } from 'next/router';
-import Breadcrumb from 'components/breadcrumb';
+import { SimpleSlider } from './components/slide';
+import Image from 'next/image';
+import { Layout, Item } from 'components/layout/interface';
+import END_POINTS from 'fetcher/endpoint';
+import Link from 'next/link';
 
 interface Props {
   tags: ITags;
   categories: Categories;
   blogs: Blogs;
+  layout: Layout;
 }
 
-export default function Blog({ tags, categories, blogs }: Props) {
+export default function Blog({ tags, categories, blogs, layout }: Props) {
   const router = useRouter();
 
   const handleChangePage = (page: number) => {
@@ -29,29 +34,45 @@ export default function Blog({ tags, categories, blogs }: Props) {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   const handleChangeSize = () => {};
 
-  const [page, pageCount, total, pageSize] = useMemo(
+  const [page, pageCount, total, pageSize, sliderItem] = useMemo(
     () => [
       getDataFromObject(blogs, 'meta.pagination.page'),
       getDataFromObject(blogs, 'meta.pagination.pageCount'),
       getDataFromObject(blogs, 'meta.pagination.total'),
       getDataFromObject(blogs, 'meta.pagination.pageSize'),
+      getDataFromObject(layout, 'data.attributes.slider.item'),
     ],
-    [blogs],
+    [blogs, layout],
   );
   return (
     <div>
-      <div className="relative flex h-[400px] items-center bg-[url(https://samartheme1.vercel.app/images/banner/bnr1.jpg)] bg-cover bg-no-repeat opacity-75 after:absolute after:left-0 after:right-0 after:top-0 after:bottom-0 after:bg-primary after:opacity-75">
-        <div className="container relative z-10">
-          <div className="text-[48px] text-white">Blog</div>
-          <Breadcrumb />
-        </div>
+      <div className="mb-[40px] h-full max-h-[800px] ">
+        <SimpleSlider>
+          {(sliderItem || []).map((item: Item) => (
+            <Link key={item.id} href={item.href}>
+              <a className="w-full cursor-pointer">
+                <Image
+                  src={`${END_POINTS.BASE_URL}${item.imageUrl.data.attributes.url}`}
+                  alt=""
+                  width={'1920'}
+                  height={'800'}
+                  layout="responsive"
+                />
+              </a>
+            </Link>
+          ))}
+        </SimpleSlider>
       </div>
-      <div className="container mt-[150px] px-[20px] md:flex md:p-0 md:pb-[30px]">
+      <div className="container px-[20px] md:flex md:p-0 md:pb-[30px]">
         <div className="mb-[30px] w-full md:mr-[30px] md:mb-0 md:w-2/3">
           {blogs &&
             blogs.data &&
             blogs.data.length > 0 &&
-            blogs.data.map((b, i) => <SingleBlog key={i} blog={b} />)}
+            blogs.data.map((b, i) => (
+              <div key={i} className="inline-block w-full md:w-1/3">
+                <SingleBlog blog={b} />
+              </div>
+            ))}
           <div>
             {pageCount > 1 && (
               <Pagination

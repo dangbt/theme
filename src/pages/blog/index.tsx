@@ -3,11 +3,13 @@ import Blog from 'components/blog/blog';
 import { getBlogs, getCategory, getLayoutData, getTags } from 'fetcher/fetcher';
 import { Blogs, Categories, Tags } from 'interface';
 import { GetServerSideProps } from 'next/types';
+import { Layout } from 'components/layout/interface';
 
 interface Props {
   tags: Tags;
   categories: Categories;
   blogs: Blogs;
+  layout: Layout;
 }
 
 export default function BlogPage(props: Props) {

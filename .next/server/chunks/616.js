@@ -197,7 +197,7 @@ function Header({ header  }) {
     }, []);
     const stickyCss = (0,react__WEBPACK_IMPORTED_MODULE_1__.useMemo)(()=>{
         if (sticky) {
-            return "shadow-1 bg-white";
+            return "shadow-1 bg-white fixed";
         }
         return "bg-transparent";
     }, [
@@ -207,8 +207,8 @@ function Header({ header  }) {
     const links = (0,utils_get_data__WEBPACK_IMPORTED_MODULE_7__/* .getDataFromObject */ .l)(header, "links");
     return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("header", {
         className: [
-            " fixed top-0 left-0 right-0 z-10 transition-all",
-            stickyCss, 
+            "top-0 left-0 right-0 z-10 transition-all",
+            stickyCss
         ].join(" "),
         children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
             className: "container flex items-center justify-between ",

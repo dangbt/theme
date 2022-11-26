@@ -31,7 +31,7 @@ function Title({ title  }) {
 
 /***/ }),
 
-/***/ 8930:
+/***/ 1180:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 // ESM COMPAT FLAG
@@ -347,7 +347,7 @@ function SingleBlog({ blog  }) {
             (0,get_data/* getDataFromObject */.l)(blog, "attributes.thumnail.data.attributes.url"),
             (0,get_data/* getDataFromObject */.l)(blog, "attributes.name"),
             (0,get_data/* getDataFromObject */.l)(blog, "attributes.sort_description"),
-            (0,formta_date/* formatDate */.p)(new Date((0,get_data/* getDataFromObject */.l)(blog, "attributes.createdAt"))),
+            (0,formta_date/* formatDate */.p)(new Date((0,get_data/* getDataFromObject */.l)(blog, "attributes.createdAt")), "dd/MM/yy"),
             (0,get_data/* getDataFromObject */.l)(blog, "attributes.users_permissions_user.data.attributes.username"),
             (0,get_data/* getDataFromObject */.l)(blog, "attributes.slug"), 
         ], [
@@ -359,7 +359,7 @@ function SingleBlog({ blog  }) {
     if (!logo || !name || !sortDescription) return null;
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         onClick: handleClick,
-        className: "group mb-[30px] cursor-pointer rounded-[10px] shadow-1",
+        className: "group mx-[10px] mb-[20px] cursor-pointer rounded-[10px] shadow-1",
         children: [
             /*#__PURE__*/ jsx_runtime_.jsx("div", {
                 className: "rounded-t-[10px] group-hover:rounded-t-[10px]",
@@ -376,18 +376,21 @@ function SingleBlog({ blog  }) {
                 className: "p-[30px] text-center",
                 children: [
                     /*#__PURE__*/ jsx_runtime_.jsx("h1", {
-                        className: "text-heading-4 mb-[15px]",
-                        children: name
+                        className: "text-heading-6 mb-[15px] h-[44px] overflow-hidden",
+                        children: name.slice(0, 40)
                     }),
-                    /*#__PURE__*/ jsx_runtime_.jsx("p", {
+                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("p", {
                         className: "text-body-1",
-                        children: sortDescription
+                        children: [
+                            sortDescription.slice(0, 100),
+                            "..."
+                        ]
                     }),
                     /*#__PURE__*/ jsx_runtime_.jsx("div", {
                         className: "my-[20px] border-t border-[#e1e1f0]"
                     }),
                     /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                        className: "flex items-center justify-between",
+                        className: "text-body-3 flex items-center justify-between",
                         children: [
                             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                 className: "flex space-x-[20px]",
@@ -419,14 +422,7 @@ function SingleBlog({ blog  }) {
                                 ]
                             }),
                             /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                className: "flex space-x-[20px]",
-                                children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                    className: "flex space-x-[10px]",
-                                    children: /*#__PURE__*/ jsx_runtime_.jsx(outline_.ShareIcon, {
-                                        className: "text-primary",
-                                        width: 20
-                                    })
-                                })
+                                className: "flex space-x-[20px]"
                             })
                         ]
                     })
@@ -557,36 +553,35 @@ function Pagination({ totalPage , handleChangePage , handleChangeSize , page , t
     });
 };
 
+;// CONCATENATED MODULE: external "react-slick"
+const external_react_slick_namespaceObject = require("react-slick");
+var external_react_slick_default = /*#__PURE__*/__webpack_require__.n(external_react_slick_namespaceObject);
+;// CONCATENATED MODULE: ./src/components/blog/components/slide.tsx
+
+
+
+const DEFAULT_SETTINGS = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true
+};
+function SimpleSlider({ children , settings  }) {
+    const st = {
+        ...DEFAULT_SETTINGS,
+        ...settings
+    };
+    return /*#__PURE__*/ jsx_runtime_.jsx((external_react_slick_default()), {
+        ...st,
+        children: children
+    });
+}
+
 // EXTERNAL MODULE: ./node_modules/next/link.js
 var next_link = __webpack_require__(1664);
 var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
-;// CONCATENATED MODULE: ./src/components/breadcrumb/index.tsx
-
-
-
-function Breadcrumb() {
-    return /*#__PURE__*/ jsx_runtime_.jsx("div", {
-        className: "",
-        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("ul", {
-            className: "flex items-center space-x-[32px] text-[15px] font-bold text-white",
-            children: [
-                /*#__PURE__*/ jsx_runtime_.jsx("li", {
-                    className: "relative cursor-pointer after:absolute after:right-[-32px] after:top-[0px] after:h-[24px] after:w-[24px] after:text-[15px] after:content-['>']",
-                    children: /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
-                        href: "/",
-                        children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
-                            children: "Home"
-                        })
-                    })
-                }),
-                /*#__PURE__*/ jsx_runtime_.jsx("li", {
-                    children: "Blog"
-                })
-            ]
-        })
-    });
-};
-
 ;// CONCATENATED MODULE: ./src/components/blog/blog.tsx
 
 
@@ -600,7 +595,10 @@ function Breadcrumb() {
 
 
 
-function Blog({ tags , categories , blogs  }) {
+
+
+
+function Blog({ tags , categories , blogs , layout  }) {
     const router = (0,router_.useRouter)();
     const handleChangePage = (page)=>{
         router.push({
@@ -613,37 +611,47 @@ function Blog({ tags , categories , blogs  }) {
     };
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     const handleChangeSize = ()=>{};
-    const { 0: page , 1: pageCount , 2: total , 3: pageSize  } = (0,external_react_.useMemo)(()=>[
+    const { 0: page , 1: pageCount , 2: total , 3: pageSize , 4: sliderItem  } = (0,external_react_.useMemo)(()=>[
             (0,get_data/* getDataFromObject */.l)(blogs, "meta.pagination.page"),
             (0,get_data/* getDataFromObject */.l)(blogs, "meta.pagination.pageCount"),
             (0,get_data/* getDataFromObject */.l)(blogs, "meta.pagination.total"),
-            (0,get_data/* getDataFromObject */.l)(blogs, "meta.pagination.pageSize"), 
+            (0,get_data/* getDataFromObject */.l)(blogs, "meta.pagination.pageSize"),
+            (0,get_data/* getDataFromObject */.l)(layout, "data.attributes.slider.item"), 
         ], [
-        blogs
+        blogs,
+        layout
     ]);
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         children: [
             /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                className: "relative flex h-[400px] items-center bg-[url(https://samartheme1.vercel.app/images/banner/bnr1.jpg)] bg-cover bg-no-repeat opacity-75 after:absolute after:left-0 after:right-0 after:top-0 after:bottom-0 after:bg-primary after:opacity-75",
-                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                    className: "container relative z-10",
-                    children: [
-                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                            className: "text-[48px] text-white",
-                            children: "Blog"
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx(Breadcrumb, {})
-                    ]
+                className: "mb-[40px] h-full max-h-[800px] ",
+                children: /*#__PURE__*/ jsx_runtime_.jsx(SimpleSlider, {
+                    children: (sliderItem || []).map((item)=>/*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
+                            href: item.href,
+                            children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
+                                className: "w-full cursor-pointer",
+                                children: /*#__PURE__*/ jsx_runtime_.jsx((image_default()), {
+                                    src: `${endpoint/* default.BASE_URL */.Z.BASE_URL}${item.imageUrl.data.attributes.url}`,
+                                    alt: "",
+                                    width: "1920",
+                                    height: "800",
+                                    layout: "responsive"
+                                })
+                            })
+                        }, item.id))
                 })
             }),
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                className: "container mt-[150px] px-[20px] md:flex md:p-0 md:pb-[30px]",
+                className: "container px-[20px] md:flex md:p-0 md:pb-[30px]",
                 children: [
                     /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                         className: "mb-[30px] w-full md:mr-[30px] md:mb-0 md:w-2/3",
                         children: [
-                            blogs && blogs.data && blogs.data.length > 0 && blogs.data.map((b, i)=>/*#__PURE__*/ jsx_runtime_.jsx(SingleBlog, {
-                                    blog: b
+                            blogs && blogs.data && blogs.data.length > 0 && blogs.data.map((b, i)=>/*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                    className: "inline-block w-full md:w-1/3",
+                                    children: /*#__PURE__*/ jsx_runtime_.jsx(SingleBlog, {
+                                        blog: b
+                                    })
                                 }, i)),
                             /*#__PURE__*/ jsx_runtime_.jsx("div", {
                                 children: pageCount > 1 && /*#__PURE__*/ jsx_runtime_.jsx(Pagination, {
@@ -1049,7 +1057,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [952,61,274,337], () => (__webpack_exec__(8930)));
+var __webpack_exports__ = __webpack_require__.X(0, [952,61,274,337], () => (__webpack_exec__(1180)));
 module.exports = __webpack_exports__;
 
 })();

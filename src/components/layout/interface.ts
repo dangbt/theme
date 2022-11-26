@@ -47,3 +47,35 @@ export interface FooterInterface {
   };
   box: Box[];
 }
+
+export interface Item {
+  id: string;
+  href: string;
+  imageUrl: {
+    data: {
+      attributes: {
+        formats: {
+          thumbnail: {
+            url: string;
+          };
+        };
+        url: string;
+      };
+    };
+  };
+}
+
+export interface SliderInterface {
+  id: string;
+  item: Item[];
+}
+
+export interface Layout {
+  data: {
+    attributes: {
+      header: HeaderInterface;
+      footer: FooterInterface;
+      slider: SliderInterface;
+    };
+  };
+}

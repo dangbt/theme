@@ -28,7 +28,7 @@ export default function Header({ header }: HeaderProps) {
   }, []);
   const stickyCss = useMemo(() => {
     if (sticky) {
-      return 'shadow-1 bg-white';
+      return 'shadow-1 bg-white fixed';
     }
     return 'bg-transparent';
   }, [sticky]);
@@ -41,10 +41,9 @@ export default function Header({ header }: HeaderProps) {
 
   return (
     <header
-      className={[
-        ' fixed top-0 left-0 right-0 z-10 transition-all',
-        stickyCss,
-      ].join(' ')}
+      className={['top-0 left-0 right-0 z-10 transition-all', stickyCss].join(
+        ' ',
+      )}
     >
       <div className="container flex items-center justify-between ">
         {logo && (

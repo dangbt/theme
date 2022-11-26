@@ -10,3 +10,25 @@ body,
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap');
+
+
+.slick-slider .slick-prev {
+  left: 25px;
+  z-index: 1;
+}
+.slick-slider .slick-next {
+  right: 25px;
+  z-index: 1;
+}
+.slick-slider .slick-dots {
+  bottom: 25px;
+  font-size: 12px;
+}
+.slick-slider .slick-dots li button:before {
+  font-size: 12px;
+}
+
+.slick-slider .slick-dots .slick-active button:before {
+  color: #6f42c1;
+}
+

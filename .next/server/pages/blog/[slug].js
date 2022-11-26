@@ -359,7 +359,7 @@ function BlogDetail({ blog , metaTag  }) {
             }),
             /*#__PURE__*/ jsx_runtime_.jsx("div", {
                 children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                    className: "container mt-[150px] px-[20px] md:flex md:p-0 md:pb-[30px]",
+                    className: "container px-[20px] md:flex md:p-0 md:pb-[30px]",
                     children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                         className: "mx-auto mb-[30px] w-full md:mb-0 md:w-2/3",
                         children: [
