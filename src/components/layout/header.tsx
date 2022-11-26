@@ -47,7 +47,7 @@ export default function Header({ header }: HeaderProps) {
     >
       <div className="container flex items-center justify-between ">
         {logo && (
-          <div>
+          <div className="cursor-pointer">
             <Link href="/" locale={locale}>
               <Img
                 src={`${END_POINTS.BASE_URL}${logo}`}

@@ -46,18 +46,20 @@ export default function Blog({ tags, categories, blogs, layout }: Props) {
   );
   return (
     <div>
-      <div className="mb-[40px] h-full max-h-[800px] ">
+      <div className="mb-[40px] h-full max-h-[600px] ">
         <SimpleSlider>
           {(sliderItem || []).map((item: Item) => (
             <Link key={item.id} href={item.href}>
               <a className="w-full cursor-pointer">
-                <Image
-                  src={`${END_POINTS.BASE_URL}${item.imageUrl.data.attributes.url}`}
-                  alt=""
-                  width={'1920'}
-                  height={'800'}
-                  layout="responsive"
-                />
+                <div className="max-h-[600px]">
+                  <Image
+                    src={`${END_POINTS.BASE_URL}${item.imageUrl.data.attributes.url}`}
+                    alt=""
+                    width={'1200'}
+                    height={'600'}
+                    layout="responsive"
+                  />
+                </div>
               </a>
             </Link>
           ))}

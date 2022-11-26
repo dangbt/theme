@@ -214,6 +214,7 @@ function Header({ header  }) {
             className: "container flex items-center justify-between ",
             children: [
                 logo && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                    className: "cursor-pointer",
                     children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_4___default()), {
                         href: "/",
                         locale: locale,

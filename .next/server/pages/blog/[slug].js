@@ -68,8 +68,8 @@ var image_default = /*#__PURE__*/__webpack_require__.n(next_image);
 var endpoint = __webpack_require__(4932);
 // EXTERNAL MODULE: ./src/utils/get-data.tsx
 var get_data = __webpack_require__(4165);
-// EXTERNAL MODULE: ./src/utils/formta-date.tsx + 1 modules
-var formta_date = __webpack_require__(4269);
+// EXTERNAL MODULE: ./src/utils/formta-date.tsx
+var formta_date = __webpack_require__(4923);
 ;// CONCATENATED MODULE: external "react-showdown"
 const external_react_showdown_namespaceObject = require("react-showdown");
 var external_react_showdown_default = /*#__PURE__*/__webpack_require__.n(external_react_showdown_namespaceObject);
@@ -495,25 +495,21 @@ const getServerSideProps = async (context)=>{
 
 /***/ }),
 
-/***/ 4269:
+/***/ 4923:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "p": () => (/* binding */ formatDate)
-});
-
-;// CONCATENATED MODULE: external "date-fns"
-const external_date_fns_namespaceObject = require("date-fns");
-;// CONCATENATED MODULE: ./src/utils/formta-date.tsx
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "p": () => (/* binding */ formatDate)
+/* harmony export */ });
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4146);
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_0__);
 
 const formatDate = (date, formatString = "PP")=>{
     if (date) {
-        return (0,external_date_fns_namespaceObject.format)(date, formatString);
+        return (0,date_fns__WEBPACK_IMPORTED_MODULE_0__.format)(date, formatString);
     }
-    return (0,external_date_fns_namespaceObject.format)(new Date(), formatString);
+    return (0,date_fns__WEBPACK_IMPORTED_MODULE_0__.format)(new Date(), formatString);
 };
 
 
@@ -548,6 +544,14 @@ module.exports = require("@heroicons/react/solid");
 
 "use strict";
 module.exports = require("axios");
+
+/***/ }),
+
+/***/ 4146:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("date-fns");
 
 /***/ }),
 
@@ -806,7 +810,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [952,61,274,616], () => (__webpack_exec__(8054)));
+var __webpack_exports__ = __webpack_require__.X(0, [952,61,932,274,616], () => (__webpack_exec__(8054)));
 module.exports = __webpack_exports__;
 
 })();

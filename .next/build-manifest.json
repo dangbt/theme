@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/gQKBJhuUTcvhn2qU2B_QT/_buildManifest.js",
-    "static/gQKBJhuUTcvhn2qU2B_QT/_ssgManifest.js"
+    "static/QsW48LFJG6FoTX7hgxOfC/_buildManifest.js",
+    "static/QsW48LFJG6FoTX7hgxOfC/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
@@ -14,8 +14,10 @@
       "static/chunks/webpack-5752944655d749a0.js",
       "static/chunks/framework-a87821de553db91d.js",
       "static/chunks/main-bddc4e87d87ec928.js",
-      "static/chunks/676-9727633e13a6032d.js",
-      "static/chunks/pages/index-a66e3741395fa98d.js"
+      "static/chunks/652-aca97c2844316bf4.js",
+      "static/chunks/580-a817a89a45fdb052.js",
+      "static/chunks/562-419d749d8af18897.js",
+      "static/chunks/pages/index-d52eac4fb53ce742.js"
     ],
     "/404": [
       "static/chunks/webpack-5752944655d749a0.js",
@@ -33,8 +35,8 @@
       "static/chunks/webpack-5752944655d749a0.js",
       "static/chunks/framework-a87821de553db91d.js",
       "static/chunks/main-bddc4e87d87ec928.js",
-      "static/css/c7f1e4e84d15d1b5.css",
-      "static/chunks/pages/_app-6cfabec6950a0c58.js"
+      "static/css/4b6eb7dc112644e4.css",
+      "static/chunks/pages/_app-08181a32a48d8647.js"
     ],
     "/_error": [
       "static/chunks/webpack-5752944655d749a0.js",
@@ -46,8 +48,7 @@
       "static/chunks/webpack-5752944655d749a0.js",
       "static/chunks/framework-a87821de553db91d.js",
       "static/chunks/main-bddc4e87d87ec928.js",
-      "static/chunks/676-9727633e13a6032d.js",
-      "static/chunks/pages/about-us-ea5350702279773c.js"
+      "static/chunks/pages/about-us-91eff1345e7da94f.js"
     ],
     "/blog": [
       "static/chunks/webpack-5752944655d749a0.js",
@@ -55,7 +56,8 @@
       "static/chunks/main-bddc4e87d87ec928.js",
       "static/chunks/652-aca97c2844316bf4.js",
       "static/chunks/580-a817a89a45fdb052.js",
-      "static/chunks/pages/blog-845899f221832742.js"
+      "static/chunks/562-419d749d8af18897.js",
+      "static/chunks/pages/blog-ef7a2fd3f03af0c0.js"
     ],
     "/blog/[slug]": [
       "static/chunks/webpack-5752944655d749a0.js",

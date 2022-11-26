@@ -10,49 +10,79 @@ exports.modules = {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "default": () => (/* binding */ HomePage),
 /* harmony export */   "getServerSideProps": () => (/* binding */ getServerSideProps)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(968);
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6689);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var components_home_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(213);
-/* harmony import */ var fetcher_fetcher__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(1274);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6689);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var components_blog_blog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4562);
+/* harmony import */ var fetcher_fetcher__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1274);
 
 
 
 
-
-const Home = ()=>{
-    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-        children: [
-            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)((next_head__WEBPACK_IMPORTED_MODULE_1___default()), {
-                children: [
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("title", {
-                        children: " Webreview | Trang chủ"
-                    }),
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("meta", {
-                        name: "description",
-                        content: "Webreview | SEO | Marketing"
-                    })
-                ]
-            }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(components_home_page__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z, {})
-        ]
+function HomePage(props) {
+    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(components_blog_blog__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
+        ...props
     });
 };
-const getServerSideProps = async ()=>{
-    const layout = await (0,fetcher_fetcher__WEBPACK_IMPORTED_MODULE_4__/* .getLayoutData */ .rW)();
+// This gets called on every request
+const getServerSideProps = async (context)=>{
+    // Fetch data from external API
+    const { query  } = context;
+    const pagination = {
+        page: "1",
+        pageSize: "9"
+    };
+    const filters = {
+        filters: {},
+        pagination: pagination
+    };
+    let categoriesFilter;
+    let tagsFilter;
+    if (query && query.category) {
+        categoriesFilter = {
+            name: {
+                $eq: query.category
+            }
+        };
+    }
+    if (query && query.tag) {
+        tagsFilter = {
+            name: {
+                $eq: query.tag
+            }
+        };
+    }
+    if (query && query.page) {
+        pagination.page = query.page;
+    }
+    if (query && query.pageSize) {
+        pagination.pageSize = query.pageSize;
+    }
+    filters.pagination = pagination;
+    filters.filters = {
+        categories: categoriesFilter,
+        tags: tagsFilter
+    };
+    const [layout, tags, categories, blogs] = await Promise.all([
+        (0,fetcher_fetcher__WEBPACK_IMPORTED_MODULE_3__/* .getLayoutData */ .rW)(),
+        (0,fetcher_fetcher__WEBPACK_IMPORTED_MODULE_3__/* .getTags */ .NJ)(),
+        (0,fetcher_fetcher__WEBPACK_IMPORTED_MODULE_3__/* .getCategory */ .n3)(),
+        (0,fetcher_fetcher__WEBPACK_IMPORTED_MODULE_3__/* .getBlogs */ ._Z)(filters), 
+    ]);
+    // Pass data to the page via props
     return {
         props: {
-            layout
+            layout,
+            tags,
+            categories,
+            blogs
         }
     };
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Home);
 
 
 /***/ }),
@@ -64,10 +94,24 @@ module.exports = require("@heroicons/react/outline");
 
 /***/ }),
 
+/***/ 1143:
+/***/ ((module) => {
+
+module.exports = require("@heroicons/react/solid");
+
+/***/ }),
+
 /***/ 2167:
 /***/ ((module) => {
 
 module.exports = require("axios");
+
+/***/ }),
+
+/***/ 4146:
+/***/ ((module) => {
+
+module.exports = require("date-fns");
 
 /***/ }),
 
@@ -253,13 +297,6 @@ module.exports = require("next/dist/shared/lib/utils.js");
 
 /***/ }),
 
-/***/ 968:
-/***/ ((module) => {
-
-module.exports = require("next/head");
-
-/***/ }),
-
 /***/ 1853:
 /***/ ((module) => {
 
@@ -281,6 +318,13 @@ module.exports = require("react");
 
 /***/ }),
 
+/***/ 8096:
+/***/ ((module) => {
+
+module.exports = require("react-slick");
+
+/***/ }),
+
 /***/ 997:
 /***/ ((module) => {
 
@@ -295,7 +339,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [952,61,274,337,213], () => (__webpack_exec__(441)));
+var __webpack_exports__ = __webpack_require__.X(0, [952,61,932,274,337,562], () => (__webpack_exec__(441)));
 module.exports = __webpack_exports__;
 
 })();
