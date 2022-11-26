@@ -721,7 +721,7 @@ const getServerSideProps = async (context)=>{
     const { query  } = context;
     const pagination = {
         page: "1",
-        pageSize: "4"
+        pageSize: "9"
     };
     const filters = {
         filters: {},
