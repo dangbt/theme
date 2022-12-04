@@ -9,8 +9,6 @@ import {
 import { Blog, Categories, Tags, MetaTag } from 'interface';
 import { GetServerSideProps } from 'next';
 import { getDataFromObject } from 'utils/get-data';
-import Footer, { FooterProps } from 'components/layout//footer';
-import Header, { HeaderProps } from 'components/layout//header';
 
 interface Props {
   tags: Tags;
@@ -22,24 +20,6 @@ interface Props {
 export default function BlogPage(props: Props) {
   return <BlogDetail {...props} />;
 }
-
-interface LayoutProps {
-  children: React.ReactNode;
-  header: HeaderProps['header'];
-  footer: FooterProps['footer'];
-}
-
-const CustomLayout = ({ children, header, footer }: LayoutProps) => {
-  return (
-    <div className="flex min-h-screen flex-col">
-      <Header header={header} />
-      <main className="static z-0 flex-1">{children}</main>
-      <Footer footer={footer} />
-    </div>
-  );
-};
-
-BlogPage.Layout = CustomLayout;
 
 // This gets called on every request
 export const getServerSideProps: GetServerSideProps = async (context) => {

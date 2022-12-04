@@ -16,10 +16,11 @@ export default function Layout({ children, header, footer }: LayoutProps) {
     header,
     'logo.data.attributes.formats.thumbnail.url',
   );
+
   return (
     <>
       <Head>
-        <link rel="icon" href={`${END_POINTS.BASE_URL}${logo}`} />
+        <link rel="icon" href={`${END_POINTS.BASE_URL}${logo}`} sizes="32x32" />
       </Head>
       <div className="flex min-h-screen flex-col">
         <Header header={header} />

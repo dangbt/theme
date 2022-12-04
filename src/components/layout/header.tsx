@@ -45,7 +45,7 @@ export default function Header({ header }: HeaderProps) {
         ' ',
       )}
     >
-      <div className="container flex items-center justify-between ">
+      <div className="container flex items-center justify-between px-[12px]  md:px-0 ">
         {logo && (
           <div className="cursor-pointer">
             <Link href="/" locale={locale}>

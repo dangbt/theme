@@ -17,11 +17,12 @@ export default function Document() {
           content="Webreview | chiến lược marketing | SEO |  Top"
         />
         <Script
-          async
+          strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-EFNPQ91Y9J"
         ></Script>
         <Script
           id="ga"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
