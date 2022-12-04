@@ -79,7 +79,10 @@ export default function BlogDetailComponent({ blog }: Props) {
       <div className="p-[30px]">
         <h1 className="text-heading-4 mb-[15px] text-center">{name}</h1>
         <div className={style.blogDetailContent}>
-          <MarkdownView markdown={formartedDesc} />
+          <MarkdownView
+            markdown={formartedDesc}
+            options={{ tables: true, emoji: true }}
+          />
         </div>
       </div>
     </div>
