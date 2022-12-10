@@ -19,14 +19,23 @@ table th,td {
   border: 1px solid;
   padding: 0 12px;
 }
+.slick-slider .slick-prev::before {
+  color: black;
+  font-size: 40px;
+}
 
 
 .slick-slider .slick-prev {
   left: 25px;
   z-index: 1;
 }
+
+.slick-slider .slick-next::before {
+  color: black;
+  font-size: 40px;
+}
 .slick-slider .slick-next {
-  right: 25px;
+  right: 50px;
   z-index: 1;
 }
 .slick-slider .slick-dots {

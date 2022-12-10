@@ -27,7 +27,7 @@ export default function Blog({ tags, categories, blogs, layout }: Props) {
 
   const handleChangePage = (page: number) => {
     router.push({
-      pathname: '/blog',
+      pathname: '/',
       query: { ...router.query, page: page },
     });
   };
@@ -46,18 +46,16 @@ export default function Blog({ tags, categories, blogs, layout }: Props) {
   );
   return (
     <div>
-      <div className="mb-[40px] h-full max-h-[600px] ">
+      <div className="mb-[40px] h-[600px] ">
         <SimpleSlider>
           {(sliderItem || []).map((item: Item) => (
             <Link key={item.id} href={item.href}>
               <a className="w-full cursor-pointer">
-                <div className="max-h-[600px]">
-                  <Image
+                <div className="h-[600px]">
+                  <img
+                    className="mx-auto h-full"
                     src={`${END_POINTS.BASE_URL}${item.imageUrl.data.attributes.url}`}
-                    alt=""
-                    width={'1200'}
-                    height={'600'}
-                    layout="responsive"
+                    alt={item.imageUrl.data.attributes.url}
                   />
                 </div>
               </a>

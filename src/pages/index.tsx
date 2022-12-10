@@ -22,7 +22,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { query } = context;
   const pagination = {
     page: '1',
-    pageSize: '9',
+    pageSize: '12',
   };
 
   const filters: any = {

@@ -38,7 +38,7 @@ export default function SingleBlog({ blog }: Props) {
   );
 
   const handleClick = () => {
-    router.push(`/blog/${slug}`);
+    router.push(`/${slug}`);
   };
   if (!logo || !name || !sortDescription) return null;
 
@@ -47,21 +47,20 @@ export default function SingleBlog({ blog }: Props) {
       onClick={handleClick}
       className="group mx-[10px] mb-[20px] cursor-pointer rounded-[10px] shadow-1"
     >
-      <div className="rounded-t-[10px] group-hover:rounded-t-[10px]">
-        <Image
+      <div className="overflow-hidden  rounded-t-[10px] group-hover:rounded-t-[10px]">
+        <img
           src={`${END_POINTS.BASE_URL}${logo}`}
           alt=""
-          width="750px"
-          height="350px"
-          layout="responsive"
-          className="rounded-t-[10px] transition-all group-hover:scale-125 group-hover:rounded-t-[10px]"
+          className="h-auto w-full rounded-t-[10px] transition-all group-hover:scale-125 group-hover:rounded-t-[10px]"
         />
       </div>
       <div className="p-[30px] text-center">
         <h1 className="text-heading-6 mb-[15px] h-[44px] overflow-hidden">
           {name.slice(0, 40)}
         </h1>
-        <p className="text-body-1">{sortDescription.slice(0, 100)}...</p>
+        <p className="text-body-1 h-[60px]">
+          {sortDescription.slice(0, 70)}...
+        </p>
         <div className="my-[20px] border-t border-[#e1e1f0]" />
         <div className="text-body-3 flex items-center justify-between">
           <div className="flex space-x-[20px]">

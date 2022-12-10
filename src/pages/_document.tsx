@@ -10,11 +10,11 @@ export default function Document() {
         <meta property="og:url" content={`https://webchiase.online`} />
         <meta
           property="og:title"
-          content="Webreview | Contet | SEO | Marketing"
+          content="Webchiase | Content | SEO | Marketing"
         />
         <meta
           property="og:description"
-          content="Webreview | chiến lược marketing | SEO |  Top"
+          content="Webchiase | Content | SEO | Marketing"
         />
         <Script
           strategy="afterInteractive"
